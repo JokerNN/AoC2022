@@ -11,7 +11,7 @@ with open(os.path.join(sys.path[0], "input.txt")) as file:
         l, r = rucksack[:midpoint], rucksack[midpoint:]
 
         union = set(l) & set(r)
-        print(union)
+
         item_id: str = union.pop()
         if item_id == item_id.lower():
             score += ord(item_id) - 96
