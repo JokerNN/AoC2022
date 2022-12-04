@@ -1,6 +1,4 @@
-inp = None
-
-with open('d:/AoC2022/1/input.txt') as blob:
+with open('d:/AoC2022/1/input.txt', encoding='utf-8') as blob:
     inp = blob.read()
     elf_inputs = inp.split('\n\n')
     elfs = []

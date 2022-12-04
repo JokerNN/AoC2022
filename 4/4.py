@@ -3,7 +3,7 @@ import sys
 from typing import Generator, List, Tuple
 
 
-def generate_pairs(pairs_input: List[str]) -> Generator[Tuple[Tuple[int, int], Tuple[int, int]], None, None]:
+def generate_pairs(pairs_input: List[str]) -> Generator[List[Tuple[int, int]], None, None]:
     for pair in pairs_input:
         range1, range2 = pair.split(',')
         l1, r1 = (int(n) for n in range1.split('-'))

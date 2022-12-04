@@ -13,12 +13,12 @@ scores_map = {
     'Z': 3
 }
 
-with open(os.path.join(sys.path[0], "input.txt"), "r") as file:
+with open(os.path.join(sys.path[0], "input.txt"), "r", encoding='utf-8') as file:
     rounds = file.read().split('\n')
     score = 0
-    for round in rounds:
-        their = mapping[round[0]]
-        my = round[2]
+    for game in rounds:
+        their = mapping[game[0]]
+        my = game[2]
         score += scores_map[my]
         if my == their:
             score += 3
@@ -28,9 +28,9 @@ with open(os.path.join(sys.path[0], "input.txt"), "r") as file:
     print(f'Ans 1: {score}')
 
     score = 0
-    for round in rounds:
-        their = mapping[round[0]]
-        outcome = round[2]
+    for game in rounds:
+        their = mapping[game[0]]
+        outcome = game[2]
 
         if outcome == 'X':
             if their == 'X':
