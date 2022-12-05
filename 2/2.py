@@ -22,6 +22,7 @@ with open(os.path.join(sys.path[0], "input.txt"), "r", encoding='utf-8') as file
         score += scores_map[my]
         if my == their:
             score += 3
+        # pylint: disable=too-many-boolean-expressions
         elif my == 'X' and their == 'Z' or my == 'Y' and their == 'X' or my == 'Z' and their == 'Y':
             score += 6
 
