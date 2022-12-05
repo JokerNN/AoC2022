@@ -2,7 +2,7 @@ import os
 import sys
 from typing import List
 
-with open(os.path.join(sys.path[0], "input.txt")) as file:
+with open(os.path.join(sys.path[0], "input.txt"), encoding='utf-8') as file:
     score: int = 0
     rucksack: str
     rucksacks: List[str] = file.readlines()

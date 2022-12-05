@@ -11,22 +11,26 @@ def generate_pairs(pairs_input: List[str]) -> Generator[List[Tuple[int, int]], N
         yield sorted(((l1, r1), (l2, r2)))
 
 
-with open(os.path.join(sys.path[0], "input.txt")) as file:
-    pairs: List[str] = file.read().split('\n')
-    overlap_count = 0
-    for pair in generate_pairs(pairs):
-        (l1, r1), (l2, r2) = pair
-        if l1 <= l2 and r1 >= r2 or l2 <= l1 and r2 >= r1:
-            overlap_count += 1
+def main():
+    with open(os.path.join(sys.path[0], "input.txt"), encoding='utf-8') as file:
+        pairs: List[str] = file.read().split('\n')
+        overlap_count = 0
+        for pair in generate_pairs(pairs):
+            (l1, r1), (l2, r2) = pair
+            if l1 <= l2 and r1 >= r2 or l2 <= l1 and r2 >= r1:
+                overlap_count += 1
 
-    print(f'Answer 1: {overlap_count}')
+        print(f'Answer 1: {overlap_count}')
 
-    overlap_count = 0
-    for pair in generate_pairs(pairs):
-        (l1, r1), (l2, r2) = pair
-        if l1 == l2 or r1 == r2:
-            overlap_count += 1
-        elif l2 <= r1:
-            overlap_count += 1
+        overlap_count = 0
+        for pair in generate_pairs(pairs):
+            (l1, r1), (l2, r2) = pair
+            if l1 == l2 or r1 == r2:
+                overlap_count += 1
+            elif l2 <= r1:
+                overlap_count += 1
 
-    print(f'Answer 2: {overlap_count}')
+        print(f'Answer 2: {overlap_count}')
+
+if __name__ == "__main__":
+    main()
