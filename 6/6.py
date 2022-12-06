@@ -16,7 +16,7 @@ def main():
     for idx in range(len(signal)):
         package = signal[idx: idx + 14]
         if len(set(package)) == 14:
-            print(f'Answer 1: {idx + 14}')
+            print(f'Answer 2: {idx + 14}')
             return
 
 

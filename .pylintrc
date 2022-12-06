@@ -1,6 +1,8 @@
 [MASTER]
 
 disable=
-    C0103,
+    C0103, 
     C0114,
-    C0116
+    C0116,
+    C0413, # wrong-import-position
+    E0401 # import-error

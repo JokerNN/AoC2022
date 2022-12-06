@@ -27,7 +27,7 @@ for command in commands_str.strip().split('\n'):
     move_count = int(m.group('move_count'))
     from_stack = int(m.group('from_stack'))
     to_stack = int(m.group('to_stack'))
-    
+
     buffer = stacks[from_stack - 1][-move_count:]
     stacks[from_stack - 1][-move_count:] = []
     buffer = buffer[::-1]
@@ -60,7 +60,7 @@ for command in commands_str.strip().split('\n'):
     move_count = int(m.group('move_count'))
     from_stack = int(m.group('from_stack'))
     to_stack = int(m.group('to_stack'))
-    
+
     buffer = stacks[from_stack - 1][-move_count:]
     stacks[from_stack - 1][-move_count:] = []
     stacks[to_stack - 1].extend(buffer)
@@ -68,4 +68,3 @@ for command in commands_str.strip().split('\n'):
 
 tops = ''.join([s[-1] for s in stacks])
 print(f'Answer 2: {tops}')
-
