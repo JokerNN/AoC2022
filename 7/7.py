@@ -43,6 +43,8 @@ class FSEntry:
             raise Exception
 
     def find_child(self: 'FSEntry', child_name: str) -> 'FSEntry':
+        if self.children is None:
+            raise Exception
         for child in self.children:
             if child.name == child_name:
                 return child
@@ -82,7 +84,11 @@ def main():
     sizes:Dict[str, int] = {}
 
     def calc_sizes(fs_node: FSEntry, name: str) -> int:
+        if fs_node.children is None:
+            raise Exception
+
         size = 0
+
         for child in fs_node.children:
             if child.type == 'dir':
                 size += calc_sizes(child, name + '/' + child.name)
