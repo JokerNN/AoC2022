@@ -1,8 +1,4 @@
-import sys
 from typing import Dict, List, Literal, Optional
-
-sys.path.append('../AOC2022')
-
 from utils.inputs import get_input_lines
 
 lines = get_input_lines('input.txt')
@@ -17,7 +13,7 @@ class FSEntry:
         size: int
     ) -> None:
         self.name = name
-        self.type : str = _type
+        self.type: Literal['dir', 'file'] = _type
         self.size = size
         self.parent: FSEntry
 

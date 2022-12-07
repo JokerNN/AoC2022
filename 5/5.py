@@ -1,8 +1,4 @@
-import sys
 import re
-
-sys.path.append('../AOC2022')
-
 from utils.inputs import get_input_blob
 
 inp = get_input_blob('input.txt')

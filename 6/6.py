@@ -1,7 +1,3 @@
-import sys
-
-sys.path.append('../AOC2022')
-
 from utils.inputs import get_input_lines
 
 
