@@ -34,7 +34,7 @@ def main():
         if abs(cycles[cycle] - drawing_pixel) <= 1:
             crt.append('#')
         else:
-            crt.append('.')
+            crt.append(' ')
 
     print('Answer 2:')
     for idx in range(0, 241, 40):
