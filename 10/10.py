@@ -32,7 +32,7 @@ def main():
     for cycle in range(1, 241):
         drawing_pixel = cycle % 40 - 1
         if abs(cycles[cycle] - drawing_pixel) <= 1:
-            crt.append('#')
+            crt.append('█')
         else:
             crt.append(' ')
 
