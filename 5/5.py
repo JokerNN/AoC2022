@@ -14,7 +14,8 @@ for stack in stacks_filtered:
     s = [c for c in s if c != ' ']
     stacks.append(s)
 
-pattern = re.compile(r'move (?P<move_count>\d+) from (?P<from_stack>\d+) to (?P<to_stack>\d+)')
+pattern = re.compile(
+    r'move (?P<move_count>\d+) from (?P<from_stack>\d+) to (?P<to_stack>\d+)')
 for command in commands_str.strip().split('\n'):
     # print(command)
     m = pattern.match(command)
@@ -47,7 +48,8 @@ for stack in stacks_filtered:
     s = [c for c in s if c != ' ']
     stacks.append(s)
 
-pattern = re.compile(r'move (?P<move_count>\d+) from (?P<from_stack>\d+) to (?P<to_stack>\d+)')
+pattern = re.compile(
+    r'move (?P<move_count>\d+) from (?P<from_stack>\d+) to (?P<to_stack>\d+)')
 for command in commands_str.strip().split('\n'):
     # print(command)
     m = pattern.match(command)

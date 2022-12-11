@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from typing import Callable, List, Dict
 from utils.inputs import get_input_blob
 
+
 @dataclass
 class Monkey:
     id: int
@@ -39,17 +40,17 @@ def parse_single_monkey(monkey_blob) -> Monkey:
     functor = None
     if factor == 'old':
         if op == '*':
-            functor = lambda old: old * old
+            def functor(old): return old * old
         elif op == '+':
-            functor = lambda old: old + old
+            def functor(old): return old + old
         else:
             raise Exception(f'Unknown operator {op}')
     else:
         factor = int(factor)
         if op == '*':
-            functor = lambda old: old * factor
+            def functor(old): return old * factor
         elif op == '+':
-            functor = lambda old: old + factor
+            def functor(old): return old + factor
         else:
             raise Exception(f'Unknown operator {op}')
 
@@ -112,7 +113,8 @@ def main():
 
             monkey_id += 1
 
-    m0, m1, *_ = sorted(monkeys_lookup.values(), key=lambda m: m.inspected_count, reverse=True)
+    m0, m1, *_ = sorted(monkeys_lookup.values(),
+                        key=lambda m: m.inspected_count, reverse=True)
     print(f'Answer 1: {m0.inspected_count * m1.inspected_count}')
 
     monkeys_lookup = parse_monkeys(input_txt)
@@ -144,12 +146,9 @@ def main():
                 monkeys_lookup[throw_id].items.append(worry_level)
             monkey_id += 1
 
-
-
-    m0, m1, *_ = sorted(monkeys_lookup.values(), key=lambda m: m.inspected_count, reverse=True)
+    m0, m1, *_ = sorted(monkeys_lookup.values(),
+                        key=lambda m: m.inspected_count, reverse=True)
     print(f'Answer 2: {m0.inspected_count * m1.inspected_count}')
-
-
 
 
 if __name__ == '__main__':

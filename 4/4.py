@@ -32,5 +32,6 @@ def main():
 
         print(f'Answer 2: {overlap_count}')
 
+
 if __name__ == "__main__":
     main()

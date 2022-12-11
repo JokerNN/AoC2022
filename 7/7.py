@@ -22,7 +22,7 @@ class FSEntry:
         else:
             self.parent = self
 
-        self.children : Optional[List[FSEntry]]
+        self.children: Optional[List[FSEntry]]
 
         if self.type == 'dir':
             self.children = []
@@ -30,7 +30,6 @@ class FSEntry:
             self.children = None
         else:
             raise Exception('Unknown file system type')
-
 
     def add_child(self, child: 'FSEntry'):
         if self.children is not None:
@@ -76,8 +75,7 @@ def main():
             filesize = int(filesize)
             cur_dir.add_child(FSEntry(filename, 'file', cur_dir, filesize))
 
-
-    sizes:Dict[str, int] = {}
+    sizes: Dict[str, int] = {}
 
     def calc_sizes(fs_node: FSEntry, name: str) -> int:
         if fs_node.children is None:
@@ -100,7 +98,6 @@ def main():
             ans1 += size
 
     print(f'Answer 1: {ans1}')
-
 
     space_to_free = 30000000 - (70000000 - sizes[''])
     # print(sizes[''])

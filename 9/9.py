@@ -4,6 +4,7 @@ from utils.inputs import get_input_lines
 
 Direction = Literal['U', 'R', 'D', 'L']
 
+
 @dataclass(frozen=True)
 class Point:
     x: int = 0
@@ -11,6 +12,7 @@ class Point:
 
     def __lt__(self: 'Point', other: 'Point'):
         return self.y < other.y or self.x < other.x
+
 
 def move_one_step(direction: Direction, start_point: Point) -> Point:
     if direction == 'U':
@@ -23,6 +25,7 @@ def move_one_step(direction: Direction, start_point: Point) -> Point:
         return Point(start_point.x - 1, start_point.y)
 
     raise Exception(f'Unknown direction: {direction}')
+
 
 def move_tail(head: Point, tail: Point) -> Point:
     if abs(head.x - tail.x) <= 1 and abs(head.y - tail.y) <= 1:
@@ -54,6 +57,7 @@ def move_tail(head: Point, tail: Point) -> Point:
 
     raise Exception('What?')
 
+
 def main():
     instructions = get_input_lines('input.txt')
     head_pos = Point(0, 0)
@@ -64,7 +68,7 @@ def main():
     for instruction in instructions:
         direction: Direction
         direction, _count = instruction.split()
-        count:int = int(_count)
+        count: int = int(_count)
         for _ in range(count):
             head_pos = move_one_step(direction, head_pos)
             tail_pos = move_tail(head_pos, tail_pos)
@@ -78,18 +82,19 @@ def main():
     for instruction in instructions:
         direction: Direction
         direction, _count = instruction.split()
-        count:int = int(_count)
+        count: int = int(_count)
 
         for _ in range(count):
             rope_knots[0] = move_one_step(direction, rope_knots[0])
 
             for idx in range(1, len(rope_knots)):
-                rope_knots[idx] = move_tail(rope_knots[idx - 1], rope_knots[idx])
+                rope_knots[idx] = move_tail(
+                    rope_knots[idx - 1], rope_knots[idx])
 
             tail_trail.add(rope_knots[9])
 
     print(f'Answer 2: {len(tail_trail)}')
 
-    
+
 if __name__ == '__main__':
     main()

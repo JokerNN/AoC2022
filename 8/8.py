@@ -8,7 +8,7 @@ def main():
     _rows = get_input_lines('input.txt')
     rows = [[int(n) for n in row] for row in _rows]
 
-    visible_trees : Set[Tuple[int,int]] = set()
+    visible_trees: Set[Tuple[int, int]] = set()
 
     for row_idx, row in enumerate(rows):
         max_height = -float('inf')
@@ -76,7 +76,8 @@ def main():
                 if row[c_idx] >= tree:
                     break
 
-            best_tree = max(top_view * right_view * bottom_view * left_view, best_tree)
+            best_tree = max(top_view * right_view *
+                            bottom_view * left_view, best_tree)
 
     print(f'Answer 2: {best_tree}')
 
