@@ -119,7 +119,7 @@ def main():
     ALL_MODULO = 2 * 3 * 5 * 7 * 11 * 13 * 17 * 19 * 23
     for _ in range(10000):
         if _ % 1000 == 0:
-            print(f'Round {round}')
+            print(f'Round {_}')
 
         monkey_id = 0
         while monkey_id in monkeys_lookup:
