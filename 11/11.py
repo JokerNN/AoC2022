@@ -37,20 +37,23 @@ def parse_single_monkey(monkey_blob) -> Monkey:
 
     operation = operation_re.sub('', lines[2])
     op, factor = operation.split(' ')
-    functor = None
     if factor == 'old':
         if op == '*':
-            def functor(old): return old * old
+            def functor(old):
+                return old * old
         elif op == '+':
-            def functor(old): return old + old
+            def functor(old):
+                return old + old
         else:
             raise Exception(f'Unknown operator {op}')
     else:
         factor = int(factor)
         if op == '*':
-            def functor(old): return old * factor
+            def functor(old):
+                return old * factor
         elif op == '+':
-            def functor(old): return old + factor
+            def functor(old):
+                return old + factor
         else:
             raise Exception(f'Unknown operator {op}')
 
