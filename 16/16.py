@@ -1,8 +1,8 @@
 import re
+from functools import cache
 from typing import List, Any, Dict, FrozenSet
 from dataclasses import dataclass
 from utils.inputs import get_input_lines
-from functools import cache
 
 parsing_re = re.compile(r'Valve (?P<valve_id>\w\w) has flow rate=(?P<flow_rate>\d+); tunnels? leads? to valve(s)? (?P<conns>.+)')
 
