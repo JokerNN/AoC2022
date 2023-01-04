@@ -84,7 +84,7 @@ def main():
         for y in range(max_y):
             for z in range(max_z):
                 test_point = Point3(x, y, z)
-                if test_point in boulder_space or test_point in outer_space:
+                if test_point in boulder_space or test_point in outer_space or test_point in inner_space:
                     continue
 
                 reached_edge, result_space = bfs(test_point, boulder_space, max_x, max_y, max_z)
