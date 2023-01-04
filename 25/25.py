@@ -42,12 +42,6 @@ def snafu_inc(snafu_num: str) -> str:
     return ''.join(reversed(snum))
 
 
-# print(snafu_inc('212'))
-# print(snafu_to_dec('22='))
-
-def dec_to_snafu(dec_num: int) -> str:
-    pass
-
 def main():
     snafu_nums = get_input_lines('./input.txt')
     dec_sum = sum(snafu_to_dec(snum) for snum in snafu_nums)

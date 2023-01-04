@@ -1,4 +1,4 @@
-from typing import DefaultDict, Dict, List, Tuple
+from typing import DefaultDict, List, Tuple
 from collections import defaultdict
 from utils.inputs import get_input_lines
 from utils.geometry import Point
@@ -8,7 +8,7 @@ ElvesMap = DefaultDict[Point, str]
 def get_orthos(vec: Point) -> List[Point]:
     if vec.x == 0:
         return [Point(-1, vec.y), Point(1, vec.y)]
-    
+
     if vec.y == 0:
         return [Point(vec.x, -1), Point(vec.x, 1)]
 
