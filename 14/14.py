@@ -5,6 +5,7 @@ from utils.geometry import Point
 
 CaveMap = DefaultDict[Point, str]
 
+
 def generate_points(start: Point, end: Point) -> List[Point]:
     res = []
     if start.x == end.x:
@@ -20,6 +21,7 @@ def generate_points(start: Point, end: Point) -> List[Point]:
 
     return res
 
+
 def draw_line(cave_map: CaveMap, points: List[Point]) -> None:
     for idx in range(len(points) - 1):
         start = points[idx]
@@ -27,6 +29,7 @@ def draw_line(cave_map: CaveMap, points: List[Point]) -> None:
         inbetween_points = generate_points(start, end)
         for p in inbetween_points:
             cave_map[p] = '#'
+
 
 def simulate_single_sand(cave_map: CaveMap, bottom: int) -> bool:
     sand_position = Point(500, 0)
@@ -80,7 +83,6 @@ def simulate_single_sand_2(cave_map: CaveMap, bottom: int) -> Point:
         return sand_position
 
 
-
 def main_1():
     cave_map: CaveMap = defaultdict(lambda: '.')
     inp_lines = get_input_lines('./input.txt')
@@ -102,6 +104,7 @@ def main_1():
         c += 1
 
     print(f'Answer 1: {c}')
+
 
 def main_2():
     cave_map: CaveMap = defaultdict(lambda: '.')
@@ -128,6 +131,7 @@ def main_2():
             break
 
     print(f'Answer 2: {c}')
+
 
 if __name__ == '__main__':
     main_1()
